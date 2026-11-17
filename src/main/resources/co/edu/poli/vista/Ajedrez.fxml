@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.VBox?>
@@ -25,11 +24,19 @@
 
         <Label fx:id="lblTurno"
                text="Turno: Blancas"/>
+		
+		<Label fx:id="lblCronometro"
+               text=""/>
 
         <GridPane fx:id="tablero"
                   alignment="CENTER"
-                  hgap="2"
-                  vgap="2"/>
+                  hgap="0"
+                  vgap="0"
+    			  maxWidth="-Infinity"
+          		  maxHeight="-Infinity"
+          		  minWidth="-Infinity"
+          		  minHeight="-Infinity"
+          		  style="-fx-border-color: #8B4513; -fx-border-width: 5; -fx-padding: 0;"/>
 
         <Label fx:id="lblEstado"
                text="Partida iniciada"/>

@@ -1,3 +1,4 @@
+
 package co.edu.poli.vista;
 
 import javafx.application.Application;
@@ -9,7 +10,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX App
+ * Clase principal que inicia la aplicación de ajedrez.
+ *
+ * @author Jsyh
  */
 public class App extends Application {
 
@@ -17,7 +20,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("ajedrez"), 640, 480);
+
+        scene = new Scene(loadFXML("Ajedrez"));
+        stage.setMaximized(true);
+
+        stage.setTitle("Ajedrez");
         stage.setScene(scene);
         stage.show();
     }
@@ -27,12 +34,19 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+
+        var resource = App.class.getResource(fxml + ".fxml");
+
+        if (resource == null) {
+            throw new IOException("No se encontró el archivo FXML: " + fxml);
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader(resource);
+
         return fxmlLoader.load();
     }
 
     public static void main(String[] args) {
         launch();
     }
-
 }
